@@ -1,14 +1,40 @@
 {
-  "id_actualizacion": "ACT-2026-08",
-  "periodo_desde": "2025-09-01",
-  "periodo_hasta": "2026-08-01",
+  "id_actualizacion": "ACT-2026-07",
+  "periodo_desde": "2025-08-01",
+  "periodo_hasta": "2026-07-01",
   "provincia": "Neuquén",
-  "estado": "procesado",
-  "cantidad_yacimientos": 170,
+  "estado": "procesado_con_advertencias",
+  "cantidad_yacimientos": 172,
   "cantidad_rankings": 25,
   "cantidad_series": 72,
   "cantidad_productoras": 26,
-  "fecha_procesamiento_utc": "2026-09-17T16:23:53.158203+00:00",
+  "advertencias": [
+    "Período 2026-08 descartado por posible carga parcial. Cobertura petróleo=71.4%, gas=50.7%, umbral=80%."
+  ],
+  "control_completitud": {
+    "2026-08": {
+      "periodo_anterior": "2026-07",
+      "petroleo_actual": 2313348.2278,
+      "petroleo_anterior": 3240489.29,
+      "ratio_petroleo": 0.713889,
+      "gas_actual": 1857498.1408,
+      "gas_anterior": 3666289.4687,
+      "ratio_gas": 0.506643,
+      "umbral": 0.8
+    },
+    "2026-07": {
+      "periodo_anterior": "2026-06",
+      "petroleo_actual": 3240489.29,
+      "petroleo_anterior": 3084277.316,
+      "ratio_petroleo": 1.050648,
+      "gas_actual": 3666289.4687,
+      "gas_anterior": 3567003.1888,
+      "ratio_gas": 1.027835,
+      "umbral": 0.8
+    }
+  },
+  "umbral_completitud": 0.8,
+  "fecha_procesamiento_utc": "2026-09-17T17:42:46.786921+00:00",
   "fuentes": {
     "petroleo_url": "http://datos.energia.gob.ar/dataset/590d1284-fd6d-4686-afd8-b3da5d90a6e9/resource/83a2b597-b087-4815-b17d-cd70990d6a79/download/produccin-petrleo-sesco-tight-y-shale-captulo-iv-por-yacimiento.csv",
     "gas_url": "http://datos.energia.gob.ar/dataset/590d1284-fd6d-4686-afd8-b3da5d90a6e9/resource/931cfb07-37b7-414a-ae8b-528dff6f9f14/download/produccin-gas-sesco-tight-y-shale-captulo-iv-por-yacimiento.csv",
@@ -18,22 +44,22 @@
   "archivos": {
     "yacimientos": {
       "nombre": "yacimientos_12m.csv",
-      "sha256": "1663c168c6265cdc46020c9e29968b70ea63a195313b4e2a0a0526a8d8cafc50",
-      "registros": 170
+      "sha256": "a5d20bab0b7f86a5ad5c0712905bec6360fb22b0ece3798c54ab2ef96d00a155",
+      "registros": 172
     },
     "ranking": {
       "nombre": "ranking_productivo.csv",
-      "sha256": "38e5ba7b7b655f2264e5b0845f51eb6fca6ccdd3b4ef4800f04f984b27efa384",
+      "sha256": "e7cf5b2b0072e13081df0bf41747c307bf30e974f2717af6ce4faec6d2debe22",
       "registros": 25
     },
     "series": {
       "nombre": "series_productivas.csv",
-      "sha256": "0f9fe802c4854804565e16e37b64d3b0844120746232a57d4c2157697c85e6e8",
+      "sha256": "23a59ad81c2b87c2aa7bf8f97a3dccc049fd95b0e79334fa624fb49736067db9",
       "registros": 72
     },
     "indicadores": {
       "nombre": "indicadores_produccion.csv",
-      "sha256": "0112a9c9c23cc08c0c838db2610006f13ab4014937ca3ab37590939b27ac2639",
+      "sha256": "627ed08361a1ef86d2a5f13c1a9fb80d9328c6c4d351d65184e2c050aef86c6a",
       "registros": 1
     }
   }
