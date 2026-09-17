@@ -1,0 +1,40 @@
+{
+  "id_actualizacion": "ACT-2026-08",
+  "periodo_desde": "2025-09-01",
+  "periodo_hasta": "2026-08-01",
+  "provincia": "Neuquén",
+  "estado": "procesado",
+  "cantidad_yacimientos": 170,
+  "cantidad_rankings": 25,
+  "cantidad_series": 72,
+  "cantidad_productoras": 26,
+  "fecha_procesamiento_utc": "2026-09-17T16:23:53.158203+00:00",
+  "fuentes": {
+    "petroleo_url": "http://datos.energia.gob.ar/dataset/590d1284-fd6d-4686-afd8-b3da5d90a6e9/resource/83a2b597-b087-4815-b17d-cd70990d6a79/download/produccin-petrleo-sesco-tight-y-shale-captulo-iv-por-yacimiento.csv",
+    "gas_url": "http://datos.energia.gob.ar/dataset/590d1284-fd6d-4686-afd8-b3da5d90a6e9/resource/931cfb07-37b7-414a-ae8b-528dff6f9f14/download/produccin-gas-sesco-tight-y-shale-captulo-iv-por-yacimiento.csv",
+    "petroleo_sha256": "d6445b660ffc573f617ace886ef0d2681a149f916c58b042627758a1224f444e",
+    "gas_sha256": "05f901b2ef9d085a24ef79863a7fd046f0471078439456eb71e0024eaa14580d"
+  },
+  "archivos": {
+    "yacimientos": {
+      "nombre": "yacimientos_12m.csv",
+      "sha256": "1663c168c6265cdc46020c9e29968b70ea63a195313b4e2a0a0526a8d8cafc50",
+      "registros": 170
+    },
+    "ranking": {
+      "nombre": "ranking_productivo.csv",
+      "sha256": "38e5ba7b7b655f2264e5b0845f51eb6fca6ccdd3b4ef4800f04f984b27efa384",
+      "registros": 25
+    },
+    "series": {
+      "nombre": "series_productivas.csv",
+      "sha256": "0f9fe802c4854804565e16e37b64d3b0844120746232a57d4c2157697c85e6e8",
+      "registros": 72
+    },
+    "indicadores": {
+      "nombre": "indicadores_produccion.csv",
+      "sha256": "0112a9c9c23cc08c0c838db2610006f13ab4014937ca3ab37590939b27ac2639",
+      "registros": 1
+    }
+  }
+}
