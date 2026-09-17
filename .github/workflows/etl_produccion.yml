@@ -1,0 +1,56 @@
+name: ETL Produccion Neuquen
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: etl-produccion-neuquen
+  cancel-in-progress: false
+
+jobs:
+  ejecutar-etl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar proceso ETL
+        run: python src/etl_produccion.py --output-dir data/output
+
+      - name: Verificar archivos generados
+        run: |
+          test -f data/output/manifest.json
+          test -f data/output/indicadores_produccion.csv
+          test -f data/output/yacimientos_12m.csv
+          test -f data/output/ranking_productivo.csv
+          test -f data/output/series_productivas.csv
+          echo "Archivos generados correctamente"
+
+      - name: Guardar resultados en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/output/
+
+          if git diff --cached --quiet; then
+            echo "No hay cambios para guardar"
+          else
+            git commit -m "Actualizar datos compactos de produccion"
+            git push
+          fi
