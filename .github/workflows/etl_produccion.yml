@@ -21,6 +21,7 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Configurar Python
@@ -44,11 +45,15 @@ jobs:
           test -f data/output/series_productivas.csv
           echo "Archivos generados correctamente"
 
-      - name: Guardar resultados en el repositorio
+      - name: Sincronizar y guardar resultados
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # Primero incorpora cualquier cambio nuevo de main.
+          git pull --rebase --autostash origin main
+
+          # Luego prepara exclusivamente las salidas del ETL.
           git add data/output/
 
           if git diff --cached --quiet; then
@@ -57,7 +62,4 @@ jobs:
           fi
 
           git commit -m "Actualizar datos compactos de produccion"
-
-          # Integra cualquier cambio realizado en main mientras corría el ETL.
-          git pull --rebase origin main
-          git push origin HEAD:main
+          git push origin main
